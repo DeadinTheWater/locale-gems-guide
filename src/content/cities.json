@@ -7,38 +7,59 @@
     "description": "From hidden speakeasies in the East Village to world-class museums and rooftop bars with skyline views, New York offers endless discovery."
   },
   {
+    "slug": "los-angeles",
+    "name": "Los Angeles",
+    "country": "United States",
+    "tagline": "Where dreams meet the Pacific",
+    "description": "Sun-soaked beaches, iconic hikes, legendary food trucks, and a creative energy that fuels everything from street art to fine dining."
+  },
+  {
+    "slug": "san-francisco",
+    "name": "San Francisco",
+    "country": "United States",
+    "tagline": "Hills, fog, and endless charm",
+    "description": "A city of vibrant neighborhoods, world-class cuisine, and jaw-dropping views around every corner of its iconic hills."
+  },
+  {
+    "slug": "denver",
+    "name": "Denver",
+    "country": "United States",
+    "tagline": "The Mile High City",
+    "description": "Craft breweries, mountain adventures, and a booming food scene set against the stunning backdrop of the Rocky Mountains."
+  },
+  {
+    "slug": "santa-fe",
+    "name": "Santa Fe",
+    "country": "United States",
+    "tagline": "Art, adobe, and desert magic",
+    "description": "A treasure trove of galleries, adobe architecture, and Southwestern cuisine nestled in the high desert of New Mexico."
+  },
+  {
+    "slug": "albuquerque",
+    "name": "Albuquerque",
+    "country": "United States",
+    "tagline": "Hot air balloons and red chile",
+    "description": "Famous for its balloon fiesta, vibrant Old Town, and a culinary scene built around the legendary New Mexico green and red chile."
+  },
+  {
+    "slug": "honolulu",
+    "name": "Honolulu",
+    "country": "United States",
+    "tagline": "Paradise found in the Pacific",
+    "description": "Turquoise waters, volcanic hikes, world-class surfing, and a rich Polynesian culture that makes every visit unforgettable."
+  },
+  {
+    "slug": "bangkok",
+    "name": "Bangkok",
+    "country": "Thailand",
+    "tagline": "A feast for every sense",
+    "description": "Glittering temples, legendary street food, floating markets, and a nightlife scene that pulses until dawn."
+  },
+  {
     "slug": "london",
     "name": "London",
     "country": "United Kingdom",
     "tagline": "Where history meets modern culture",
     "description": "Explore centuries of history alongside cutting-edge galleries, secret gardens, and the best afternoon tea you'll ever have."
-  },
-  {
-    "slug": "paris",
-    "name": "Paris",
-    "country": "France",
-    "tagline": "The art of living beautifully",
-    "description": "Beyond the Eiffel Tower lies a city of intimate wine bars, hidden courtyards, and neighborhoods that feel like small villages."
-  },
-  {
-    "slug": "tokyo",
-    "name": "Tokyo",
-    "country": "Japan",
-    "tagline": "Tradition woven into the future",
-    "description": "A city where ancient temples sit beside neon-lit streets, and every meal is an experience worth writing about."
-  },
-  {
-    "slug": "barcelona",
-    "name": "Barcelona",
-    "country": "Spain",
-    "tagline": "Sun, art, and endless tapas",
-    "description": "Gaudí's masterpieces, Mediterranean beaches, and a food scene that rivals any city in the world."
-  },
-  {
-    "slug": "lisbon",
-    "name": "Lisbon",
-    "country": "Portugal",
-    "tagline": "Europe's sunniest secret",
-    "description": "Cobblestone streets, pastel-colored buildings, and a vibrant arts scene make Lisbon one of Europe's most exciting cities."
   }
 ]

@@ -62,59 +62,5 @@
         "url": "#"
       }
     ]
-  },
-  {
-    "slug": "best-cafes",
-    "citySlug": "paris",
-    "title": "The Most Beautiful Cafés in Paris",
-    "excerpt": "These aren't just places to drink coffee — they're works of art you can sit inside.",
-    "category": "Food & Drink",
-    "readTime": "5 min read",
-    "author": "Editorial Team",
-    "date": "2026-01-28",
-    "content": "Parisian café culture is legendary, but some cafés deserve special attention for their extraordinary beauty and atmosphere.\n\n## 1. Café de Flore\n\nThe quintessential Parisian café. Hemingway and Sartre were regulars. The Art Deco interior hasn't changed in decades.\n\n## 2. Le Pavillon des Canaux\n\nA quirky café where each room is designed like a different part of a house. You can work from a bathtub or sip espresso in a bedroom.\n\n## 3. Shakespeare and Company Café\n\nAdjacent to the legendary bookshop, this café overlooks Notre-Dame. The literary atmosphere is unmatched.",
-    "affiliateLinks": [
-      {
-        "label": "Book a Paris Café Walking Tour",
-        "description": "Visit 5 iconic cafés with a local historian — pastries included",
-        "url": "#"
-      }
-    ]
-  },
-  {
-    "slug": "temple-walks",
-    "citySlug": "tokyo",
-    "title": "Meditative Temple Walks in Tokyo",
-    "excerpt": "Find serenity in the world's busiest city with these peaceful temple routes.",
-    "category": "Culture",
-    "readTime": "7 min read",
-    "author": "Editorial Team",
-    "date": "2026-02-03",
-    "content": "Amid Tokyo's electric energy, ancient temples offer pockets of extraordinary calm.\n\n## 1. Meiji Shrine Forest Walk\n\nA 170-acre forest in the heart of Shibuya. The walk from the torii gate to the shrine is one of Tokyo's most peaceful experiences.\n\n## 2. Senso-ji at Dawn\n\nVisit Asakusa's famous temple before 7am when it's nearly empty. The morning light on the pagoda is magical.\n\n## 3. Gotokuji Temple\n\nThe legendary temple of the lucky cat. Thousands of maneki-neko figurines line the grounds — it's wonderfully surreal.",
-    "affiliateLinks": [
-      {
-        "label": "Book a Tokyo Temple Tour",
-        "description": "Half-day guided tour of Tokyo's most serene temples",
-        "url": "#"
-      }
-    ]
-  },
-  {
-    "slug": "tapas-trail",
-    "citySlug": "barcelona",
-    "title": "The Ultimate Barcelona Tapas Trail",
-    "excerpt": "A curated walk through Barcelona's old town, one pintxo at a time.",
-    "category": "Food & Drink",
-    "readTime": "5 min read",
-    "author": "Editorial Team",
-    "date": "2026-01-25",
-    "content": "Barcelona's tapas scene is one of the best in Spain. This self-guided trail takes you through the Gothic Quarter and El Born.\n\n## 1. Cal Pep\n\nSit at the bar and let the chef decide. The fried artichokes and clams are legendary.\n\n## 2. Bar del Pla\n\nA modern twist on traditional Catalan cuisine. The tuna tataki with soy is a standout.\n\n## 3. La Plata\n\nThey serve exactly four things: anchovies, tomato salad, sausage, and wine. And they do them all perfectly.",
-    "affiliateLinks": [
-      {
-        "label": "Book a Tapas & Wine Tour",
-        "description": "Evening food walk with 10 tapas tastings and wine pairings",
-        "url": "#"
-      }
-    ]
   }
 ]

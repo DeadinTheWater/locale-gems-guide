@@ -1,18 +1,24 @@
 // City image imports
 import newYork from "@/assets/cities/new-york.jpg";
+import losAngeles from "@/assets/cities/los-angeles.jpg";
+import sanFrancisco from "@/assets/cities/san-francisco.jpg";
+import denver from "@/assets/cities/denver.jpg";
+import santaFe from "@/assets/cities/santa-fe.jpg";
+import albuquerque from "@/assets/cities/albuquerque.jpg";
+import honolulu from "@/assets/cities/honolulu.jpg";
+import bangkok from "@/assets/cities/bangkok.jpg";
 import london from "@/assets/cities/london.jpg";
-import paris from "@/assets/cities/paris.jpg";
-import tokyo from "@/assets/cities/tokyo.jpg";
-import barcelona from "@/assets/cities/barcelona.jpg";
-import lisbon from "@/assets/cities/lisbon.jpg";
 
 const cityImages: Record<string, string> = {
   "new-york": newYork,
+  "los-angeles": losAngeles,
+  "san-francisco": sanFrancisco,
+  denver,
+  "santa-fe": santaFe,
+  albuquerque,
+  honolulu,
+  bangkok,
   london,
-  paris,
-  tokyo,
-  barcelona,
-  lisbon,
 };
 
 export function getCityImage(slug: string): string {

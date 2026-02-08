@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import citiesData from "@/content/cities.json";
+import logo from "@/assets/logo.png";
 
 const SiteHeader = () => {
   const [citiesOpen, setCitiesOpen] = useState(false);

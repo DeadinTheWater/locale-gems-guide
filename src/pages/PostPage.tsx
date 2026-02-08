@@ -38,6 +38,21 @@ const PostPage = () => {
           </h2>
         );
       }
+      // Render inline markdown images
+      if (block.startsWith("![")) {
+        const match = block.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+        if (match) {
+          return (
+            <figure key={i} className="my-6">
+              <img
+                src={match[2]}
+                alt={match[1]}
+                className="w-full rounded-lg object-cover max-h-[500px]"
+              />
+            </figure>
+          );
+        }
+      }
       if (block.startsWith("### ")) {
         return (
           <h3 key={i} className="mt-8 mb-3 text-xl font-serif font-semibold text-foreground">
@@ -77,6 +92,17 @@ const PostPage = () => {
           <ArrowLeft className="h-4 w-4" />
           Back to {city.name}
         </Link>
+
+        {/* Hero Image */}
+        {post.image && (
+          <div className="max-w-3xl mb-10">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full rounded-lg object-cover max-h-[500px]"
+            />
+          </div>
+        )}
 
         {/* Header */}
         <header className="max-w-2xl mb-10">

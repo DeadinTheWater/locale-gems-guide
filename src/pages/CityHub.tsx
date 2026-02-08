@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import citiesData from "@/content/cities.json";
 import postsData from "@/content/posts.json";
-import { getCityImage } from "@/lib/cityImages";
 import PostCard from "@/components/PostCard";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";

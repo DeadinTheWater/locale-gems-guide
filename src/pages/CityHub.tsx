@@ -71,6 +71,7 @@ const CityHub = () => {
                 title={post.title}
                 excerpt={post.excerpt}
                 date={post.date}
+                image={post.image}
               />
             ))
           ) : (

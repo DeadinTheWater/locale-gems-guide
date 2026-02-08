@@ -93,6 +93,17 @@ const PostPage = () => {
           Back to {city.name}
         </Link>
 
+        {/* Hero Image */}
+        {post.image && (
+          <div className="max-w-3xl mb-10">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full rounded-lg object-cover max-h-[500px]"
+            />
+          </div>
+        )}
+
         {/* Header */}
         <header className="max-w-2xl mb-10">
           <div className="flex items-center gap-3 mb-4">

@@ -70,21 +70,15 @@ const Index = () => {
           </div>
           <div className="max-w-2xl">
             {latestPosts.map((post) => (
-              <Link
+              <PostCard
                 key={post.id}
-                to={`/${post.cityId}/${post.id}`}
-                className="group block border-b border-border py-6 first:pt-0 last:border-b-0"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs text-muted-foreground font-sans">{post.date}</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-serif font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {post.title}
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground font-sans line-clamp-2">
-                  {post.excerpt}
-                </p>
-              </Link>
+                slug={post.id}
+                citySlug={post.cityId}
+                title={post.title}
+                excerpt={post.excerpt}
+                date={post.date}
+                image={post.image}
+              />
             ))}
           </div>
         </section>

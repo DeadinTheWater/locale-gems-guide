@@ -11,8 +11,8 @@ const SiteHeader = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="font-serif text-xl font-semibold tracking-tight text-foreground">
-          InterestingHere
+        <Link to="/">
+          <img src={logo} alt="InterestingHere" className="h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}

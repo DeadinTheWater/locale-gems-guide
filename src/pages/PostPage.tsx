@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import citiesData from "@/content/cities.json";
 import postsData from "@/content/posts.json";
 import SiteHeader from "@/components/SiteHeader";
@@ -25,59 +26,8 @@ const PostPage = () => {
     );
   }
 
-  // Render markdown content with headings, paragraphs, bold, and links
-  const renderContent = (content: string) => {
-    return content.split("\n\n").map((block, i) => {
-      if (block.startsWith("# ")) {
-        return null; // Skip H1 since we show it in the header
-      }
-      if (block.startsWith("## ")) {
-        return (
-          <h2 key={i} className="mt-10 mb-4 text-2xl font-serif font-semibold text-foreground">
-            {block.replace("## ", "")}
-          </h2>
-        );
-      }
-      // Render inline markdown images
-      if (block.startsWith("![")) {
-        const match = block.match(/!\[([^\]]*)\]\(([^)]+)\)/);
-        if (match) {
-          return (
-            <figure key={i} className="my-6">
-              <img
-                src={match[2]}
-                alt={match[1]}
-                className="w-full rounded-lg object-cover max-h-[500px]"
-              />
-            </figure>
-          );
-        }
-      }
-      if (block.startsWith("### ")) {
-        return (
-          <h3 key={i} className="mt-8 mb-3 text-xl font-serif font-semibold text-foreground">
-            {block.replace("### ", "")}
-          </h3>
-        );
-      }
-      if (block.startsWith("---")) {
-        return <hr key={i} className="my-8 border-border" />;
-      }
-      // Render paragraphs with inline markdown (bold, links)
-      return (
-        <p
-          key={i}
-          className="mb-4 text-foreground/85 font-sans leading-[1.8] text-base md:text-[17px]"
-          dangerouslySetInnerHTML={{
-            __html: block
-              .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-              .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\s*\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$1</a>')
-              .replace(/\n/g, '<br />')
-          }}
-        />
-      );
-    });
-  };
+  // Strip the H1 from content since we render it in the header
+  const contentWithoutH1 = post.content.replace(/^# .+\n\n?/, "");
 
   return (
     <div className="min-h-screen bg-background">
@@ -119,8 +69,58 @@ const PostPage = () => {
         </header>
 
         {/* Content */}
-        <div className="max-w-2xl">
-          {renderContent(post.content)}
+        <div className="max-w-2xl prose-custom">
+          <ReactMarkdown
+            components={{
+              h2: ({ children }) => (
+                <h2 className="mt-10 mb-4 text-2xl font-serif font-semibold text-foreground">
+                  {children}
+                </h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="mt-8 mb-3 text-xl font-serif font-semibold text-foreground">
+                  {children}
+                </h3>
+              ),
+              p: ({ children, node }) => {
+                // If the paragraph contains only an image, render without wrapping <p>
+                const hasOnlyImage =
+                  node?.children?.length === 1 && node.children[0].type === "element" && node.children[0].tagName === "img";
+                if (hasOnlyImage) {
+                  return <>{children}</>;
+                }
+                return (
+                  <p className="mb-4 text-foreground/85 font-sans leading-[1.8] text-base md:text-[17px]">
+                    {children}
+                  </p>
+                );
+              },
+              img: ({ src, alt }) => (
+                <figure className="my-6">
+                  <img
+                    src={src}
+                    alt={alt || ""}
+                    className="w-full rounded-lg object-cover max-h-[500px]"
+                    loading="lazy"
+                  />
+                </figure>
+              ),
+              a: ({ href, children }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  {children}
+                </a>
+              ),
+              strong: ({ children }) => <strong>{children}</strong>,
+              hr: () => <hr className="my-8 border-border" />,
+            }}
+          >
+            {contentWithoutH1}
+          </ReactMarkdown>
         </div>
 
         {/* Disclosure */}

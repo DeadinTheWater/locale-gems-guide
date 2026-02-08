@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import citiesData from "@/content/cities.json";
 import postsData from "@/content/posts.json";
-import { getCityImage } from "@/lib/cityImages";
 import PostCard from "@/components/PostCard";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -10,6 +9,7 @@ const CityHub = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
   const city = citiesData.find((c) => c.slug === citySlug);
   const cityPosts = postsData.filter((p) => p.cityId === citySlug);
+  const heroImage = cityPosts[0]?.image || "";
 
   if (!city) {
     return (
@@ -33,7 +33,7 @@ const CityHub = () => {
       {/* City Hero */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <img
-          src={getCityImage(city.slug)}
+          src={heroImage}
           alt={`${city.name}, ${city.country}`}
           className="absolute inset-0 h-full w-full object-cover"
         />

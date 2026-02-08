@@ -9,7 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 const CityHub = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
   const city = citiesData.find((c) => c.slug === citySlug);
-  const cityPosts = postsData.filter((p) => p.citySlug === citySlug);
+  const cityPosts = postsData.filter((p) => p.cityId === citySlug);
 
   if (!city) {
     return (
@@ -65,13 +65,11 @@ const CityHub = () => {
           {cityPosts.length > 0 ? (
             cityPosts.map((post) => (
               <PostCard
-                key={post.slug}
-                slug={post.slug}
-                citySlug={post.citySlug}
+                key={post.id}
+                slug={post.id}
+                citySlug={post.cityId}
                 title={post.title}
                 excerpt={post.excerpt}
-                category={post.category}
-                readTime={post.readTime}
                 date={post.date}
               />
             ))

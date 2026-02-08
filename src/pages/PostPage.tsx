@@ -2,14 +2,13 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import citiesData from "@/content/cities.json";
 import postsData from "@/content/posts.json";
-import AffiliateCTA from "@/components/AffiliateCTA";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 const PostPage = () => {
   const { citySlug, postSlug } = useParams<{ citySlug: string; postSlug: string }>();
   const city = citiesData.find((c) => c.slug === citySlug);
-  const post = postsData.find((p) => p.slug === postSlug && p.citySlug === citySlug);
+  const post = postsData.find((p) => p.id === postSlug && p.cityId === citySlug);
 
   if (!city || !post) {
     return (
@@ -26,9 +25,12 @@ const PostPage = () => {
     );
   }
 
-  // Simple markdown-like rendering for content
+  // Render markdown content with headings, paragraphs, bold, and links
   const renderContent = (content: string) => {
     return content.split("\n\n").map((block, i) => {
+      if (block.startsWith("# ")) {
+        return null; // Skip H1 since we show it in the header
+      }
       if (block.startsWith("## ")) {
         return (
           <h2 key={i} className="mt-10 mb-4 text-2xl font-serif font-semibold text-foreground">
@@ -36,10 +38,28 @@ const PostPage = () => {
           </h2>
         );
       }
+      if (block.startsWith("### ")) {
+        return (
+          <h3 key={i} className="mt-8 mb-3 text-xl font-serif font-semibold text-foreground">
+            {block.replace("### ", "")}
+          </h3>
+        );
+      }
+      if (block.startsWith("---")) {
+        return <hr key={i} className="my-8 border-border" />;
+      }
+      // Render paragraphs with inline markdown (bold, links)
       return (
-        <p key={i} className="mb-4 text-foreground/85 font-sans leading-[1.8] text-base md:text-[17px]">
-          {block}
-        </p>
+        <p
+          key={i}
+          className="mb-4 text-foreground/85 font-sans leading-[1.8] text-base md:text-[17px]"
+          dangerouslySetInnerHTML={{
+            __html: block
+              .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+              .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\s*\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$1</a>')
+              .replace(/\n/g, '<br />')
+          }}
+        />
       );
     });
   };
@@ -61,12 +81,6 @@ const PostPage = () => {
         {/* Header */}
         <header className="max-w-2xl mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-medium uppercase tracking-[0.15em] text-primary font-sans">
-              {post.category}
-            </span>
-            <span className="text-muted-foreground">·</span>
-            <span className="text-xs text-muted-foreground font-sans">{post.readTime}</span>
-            <span className="text-muted-foreground">·</span>
             <span className="text-xs text-muted-foreground font-sans">{post.date}</span>
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-[1.15] text-balance">
@@ -81,23 +95,6 @@ const PostPage = () => {
         {/* Content */}
         <div className="max-w-2xl">
           {renderContent(post.content)}
-
-          {/* Affiliate CTAs */}
-          {post.affiliateLinks.length > 0 && (
-            <div className="mt-12 mb-8">
-              <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground font-sans mb-4">
-                Our recommendations
-              </p>
-              {post.affiliateLinks.map((link, i) => (
-                <AffiliateCTA
-                  key={i}
-                  label={link.label}
-                  description={link.description}
-                  url={link.url}
-                />
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Disclosure */}

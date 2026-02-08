@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PostCard from "@/components/PostCard";
 import heroImage from "@/assets/hero.jpg";
 import citiesData from "@/content/cities.json";
 import postsData from "@/content/posts.json";

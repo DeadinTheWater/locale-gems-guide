@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import citiesData from "@/content/cities.json";
+import logo from "@/assets/logo.png";
 
 const SiteHeader = () => {
   const [citiesOpen, setCitiesOpen] = useState(false);
@@ -10,8 +11,8 @@ const SiteHeader = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="font-serif text-xl font-semibold tracking-tight text-foreground">
-          InterestingHere
+        <Link to="/">
+          <img src={logo} alt="InterestingHere" className="h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}

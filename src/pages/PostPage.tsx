@@ -38,6 +38,21 @@ const PostPage = () => {
           </h2>
         );
       }
+      // Render inline markdown images
+      if (block.startsWith("![")) {
+        const match = block.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+        if (match) {
+          return (
+            <figure key={i} className="my-6">
+              <img
+                src={match[2]}
+                alt={match[1]}
+                className="w-full rounded-lg object-cover max-h-[500px]"
+              />
+            </figure>
+          );
+        }
+      }
       if (block.startsWith("### ")) {
         return (
           <h3 key={i} className="mt-8 mb-3 text-xl font-serif font-semibold text-foreground">

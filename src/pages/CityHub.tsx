@@ -9,7 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 const CityHub = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
   const city = citiesData.find((c) => c.slug === citySlug);
-  const cityPosts = postsData.filter((p) => p.citySlug === citySlug);
+  const cityPosts = postsData.filter((p) => p.cityId === citySlug);
 
   if (!city) {
     return (

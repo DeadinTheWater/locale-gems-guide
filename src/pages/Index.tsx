@@ -71,16 +71,12 @@ const Index = () => {
           <div className="max-w-2xl">
             {latestPosts.map((post) => (
               <Link
-                key={post.slug}
-                to={`/${post.citySlug}/${post.slug}`}
+                key={post.id}
+                to={`/${post.cityId}/${post.id}`}
                 className="group block border-b border-border py-6 first:pt-0 last:border-b-0"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs font-medium uppercase tracking-[0.15em] text-primary font-sans">
-                    {post.category}
-                  </span>
-                  <span className="text-muted-foreground">·</span>
-                  <span className="text-xs text-muted-foreground font-sans">{post.readTime}</span>
+                  <span className="text-xs text-muted-foreground font-sans">{post.date}</span>
                 </div>
                 <h3 className="text-lg md:text-xl font-serif font-semibold text-foreground group-hover:text-primary transition-colors">
                   {post.title}

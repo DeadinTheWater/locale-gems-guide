@@ -1,70 +1,5 @@
 [
   {
-    "slug": "hidden-rooftop-bars",
-    "citySlug": "new-york",
-    "title": "The Best Hidden Rooftop Bars in New York",
-    "excerpt": "Skip the tourist traps. These intimate rooftop spots offer stunning skyline views without the crowds.",
-    "category": "Nightlife",
-    "readTime": "5 min read",
-    "author": "Editorial Team",
-    "date": "2026-01-15",
-    "content": "New York's rooftop bar scene is legendary, but the best spots aren't the ones you'll find on every tourist blog. We've spent months discovering the city's most intimate, under-the-radar rooftop experiences.\n\n## 1. The Roof at Public Hotel\n\nTucked away on the Lower East Side, this rooftop offers panoramic views of Manhattan without the velvet rope attitude. The cocktail menu changes seasonally, and the vibe is effortlessly cool.\n\n## 2. Westlight at The William Vale\n\nIn Williamsburg, this 22nd-floor bar provides sweeping views of the Manhattan skyline across the East River. The design is sleek and modern, with floor-to-ceiling windows.\n\n## 3. Dear Irving on Hudson\n\nLocated atop the Aliz Hotel in Hell's Kitchen, this bar combines Art Deco glamour with some of the best craft cocktails in the city. The terrace is a hidden gem.",
-    "affiliateLinks": [
-      {
-        "label": "Book The William Vale Hotel",
-        "description": "Stay where the locals go — rates from $280/night",
-        "url": "#"
-      },
-      {
-        "label": "Book a NYC Rooftop Bar Tour",
-        "description": "Guided tour of 4 hidden rooftop bars with welcome drinks",
-        "url": "#"
-      }
-    ]
-  },
-  {
-    "slug": "secret-food-tours",
-    "citySlug": "new-york",
-    "title": "Secret Food Tours Only Locals Know About",
-    "excerpt": "Forget the chain restaurants. These neighborhood food walks reveal the real flavors of New York.",
-    "category": "Food & Drink",
-    "readTime": "4 min read",
-    "author": "Editorial Team",
-    "date": "2026-01-20",
-    "content": "The best food in New York isn't in Midtown — it's in the neighborhoods. From Queens' incredible diversity to Brooklyn's artisan food scene, here are the tours worth your time.\n\n## 1. Flushing, Queens Food Walk\n\nOften called the real Chinatown, Flushing offers some of the most authentic Chinese, Korean, and Southeast Asian food in the country.\n\n## 2. Smorgasburg Brooklyn\n\nEvery weekend, this open-air food market brings together 100+ vendors. It's the perfect Saturday activity.\n\n## 3. East Village Taco Crawl\n\nA self-guided tour through the East Village's best taquerias, from al pastor to birria tacos.",
-    "affiliateLinks": [
-      {
-        "label": "Book a Private Food Tour",
-        "description": "3-hour guided walk through NYC's best hidden eateries",
-        "url": "#"
-      }
-    ]
-  },
-  {
-    "slug": "hidden-gems",
-    "citySlug": "london",
-    "title": "London's Best-Kept Secrets",
-    "excerpt": "Beyond Big Ben and Buckingham Palace — the London experiences that most visitors never discover.",
-    "category": "Culture",
-    "readTime": "6 min read",
-    "author": "Editorial Team",
-    "date": "2026-02-01",
-    "content": "London is one of the world's most visited cities, but its best experiences are often hidden in plain sight.\n\n## 1. The Sir John Soane's Museum\n\nThis free museum in Holborn is an architect's private collection turned public treasure. The Saturday evening candlelit openings are unforgettable.\n\n## 2. God's Own Junkyard\n\nA warehouse in Walthamstow filled with vintage neon signs. It's one of London's most Instagrammable spots, and barely anyone knows about it.\n\n## 3. Postman's Park\n\nA tiny park near St. Paul's Cathedral with a memorial wall dedicated to ordinary people who died saving others. It's profoundly moving and deeply quiet.",
-    "affiliateLinks": [
-      {
-        "label": "Book a Hidden London Walking Tour",
-        "description": "Discover secret passages and hidden courtyards with a local guide",
-        "url": "#"
-      },
-      {
-        "label": "Check London Hotel Deals",
-        "description": "Boutique hotels in central London from £120/night",
-        "url": "#"
-      }
-    ]
-  },
-  [
-  {
     "id": "new-york-hidden-gems",
     "title": "New York City: Beyond the Skyscrapers – Discovering Manhattan's Hidden Gems",
     "excerpt": "Explore the city's secret gardens, historic enclaves, and unexpected artistic havens that even many locals overlook.",
@@ -109,7 +44,4 @@
     "image": "/images/posts/sf-gems.jpg",
     "date": "2026-02-09"
   }
-]
-
-
 ]

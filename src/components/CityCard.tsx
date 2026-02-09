@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import postsData from "@/content/posts.json";
 import { getCityImage } from "@/lib/cityImages";
+import FallbackImage from "@/components/FallbackImage";
 
 interface CityCardProps {
   slug: string;
@@ -10,7 +11,6 @@ interface CityCardProps {
 }
 
 const CityCard = ({ slug, name, country, tagline }: CityCardProps) => {
-  // Use heroImage from the first post for this city, fall back to asset
   const cityPost = postsData.find((p) => p.cityId === slug);
   const imageSrc = cityPost?.image || getCityImage(slug);
 
@@ -19,7 +19,7 @@ const CityCard = ({ slug, name, country, tagline }: CityCardProps) => {
       to={`/${slug}`}
       className="group relative block aspect-[4/5] overflow-hidden rounded-sm"
     >
-      <img
+      <FallbackImage
         src={imageSrc}
         alt={`${name}, ${country}`}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"

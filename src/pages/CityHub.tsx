@@ -4,6 +4,7 @@ import postsData from "@/content/posts.json";
 import PostCard from "@/components/PostCard";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import FallbackImage from "@/components/FallbackImage";
 
 const CityHub = () => {
   const { citySlug } = useParams<{ citySlug: string }>();

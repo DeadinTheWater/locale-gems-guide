@@ -1,7 +1,7 @@
 [
   {
     "id": "new-york-hidden-gems",
-    "city": "new-york",
+    "city": "New York",
     "title": "New York City: Beyond the Skyscrapers – Discovering Manhattan's Hidden Gems",
     "excerpt": "Explore the city's secret gardens, historic enclaves, and unexpected artistic havens that even many locals overlook.",
     "date": "2026-02-09",
@@ -13,7 +13,7 @@
   },
   {
     "id": "london-hidden-gems",
-    "city": "london",
+    "city": "London",
     "title": "London: Beyond Big Ben – Uncovering the City’s Secret Charms",
     "excerpt": "Discover the hidden gardens, historic ruins, and quirky corners that give London its unique, enduring charm.",
     "date": "2026-02-09",
@@ -25,7 +25,7 @@
   },
   {
     "id": "bangkok-artistic-soul",
-    "city": "bangkok",
+    "city": "Bangkok",
     "title": "Bangkok: Beyond the Temples – Discovering the City’s Artistic Soul",
     "excerpt": "Explore Bangkok's hidden gems, where ancient traditions meet contemporary creativity.",
     "date": "2026-02-09",
@@ -37,7 +37,7 @@
   },
   {
     "id": "honolulu-hidden-gems",
-    "city": "honolulu",
+    "city": "Honolulu",
     "title": "Honolulu: Beyond the Beach – Discovering Oahu's Hidden Treasures",
     "excerpt": "Step away from Waikiki and discover the lush gardens, historic sites, and local flavors that make Honolulu truly special.",
     "date": "2026-02-09",
@@ -49,7 +49,7 @@
   },
   {
     "id": "san-francisco-hidden-gems",
-    "city": "san-francisco",
+    "city": "San Francisco",
     "title": "San Francisco: Beyond the Bridge – Uncovering the City's Secret Spots",
     "excerpt": "Discover the hidden stairways, quirky museums, and breathtaking views that define the true spirit of San Francisco.",
     "date": "2026-02-09",
@@ -61,7 +61,7 @@
   },
   {
     "id": "los-angeles-hidden-gems",
-    "city": "los-angeles",
+    "city": "Los Angeles",
     "title": "Los Angeles: Beyond the Hollywood Sign – Discovering the City's Secret Soul",
     "excerpt": "Step away from the Walk of Fame and discover the hidden canals, abandoned zoos, and architectural wonders of LA.",
     "date": "2026-02-09",
@@ -73,7 +73,7 @@
   },
   {
     "id": "denver-hidden-gems",
-    "city": "denver",
+    "city": "Denver",
     "title": "Denver: The Mile High City’s Best Kept Secrets",
     "excerpt": "Discover the unique history, quirky shops, and artistic enclaves that reveal the true character of Denver.",
     "date": "2026-02-09",
@@ -85,7 +85,7 @@
   },
   {
     "id": "santa-fe-hidden-gems",
-    "city": "santa-fe",
+    "city": "Santa Fe",
     "title": "Santa Fe: Art, Adobe, and Hidden Magic",
     "excerpt": "Explore the immersive art installations, mountain retreats, and historic ranches of the 'City Different'.",
     "date": "2026-02-09",
@@ -97,7 +97,7 @@
   },
   {
     "id": "albuquerque-hidden-gems",
-    "city": "albuquerque",
+    "city": "Albuquerque",
     "title": "Albuquerque: High Desert Wonders and Quirky Finds",
     "excerpt": "Discover the ancient history, unique museums, and whimsical folk art that make Albuquerque a truly unique destination.",
     "date": "2026-02-09",
@@ -109,7 +109,7 @@
   },
   {
     "id": "sydney-hidden-gems",
-    "city": "sydney",
+    "city": "Sydney",
     "title": "Sydney: Beyond the Opera House – Discovering the Harbour City’s Secret Charms",
     "excerpt": "Look beyond the famous landmarks to find secret gardens, secluded beaches, and contemporary art havens in Sydney.",
     "date": "2026-02-09",

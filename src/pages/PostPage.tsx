@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Facebook, Link as LinkIcon, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import posts from "../data/posts.json";
+import posts from "@/content/posts.json";
 
 const PostPage = () => {
   const { city, id } = useParams();

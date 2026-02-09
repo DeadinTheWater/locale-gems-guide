@@ -125,8 +125,13 @@ const PostPage = () => {
           </ReactMarkdown>
         </div>
 
+        {/* Share bar bottom */}
+        <div className="max-w-2xl mt-12">
+          <ShareBar title={post.title} />
+        </div>
+
         {/* Disclosure */}
-        <div className="max-w-2xl mt-16 pt-8 border-t border-border">
+        <div className="max-w-2xl mt-8 pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground font-sans leading-relaxed">
             <strong>Affiliate Disclosure:</strong> Some links in this article are affiliate links. We may earn a small commission if you make a purchase, at no extra cost to you. This helps us keep creating free content.
           </p>

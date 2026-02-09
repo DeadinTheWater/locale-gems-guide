@@ -2,14 +2,16 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Facebook, Link as LinkIcon, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import posts from "@/content/posts.json";
+import posts from "../data/posts.json";
 
 const PostPage = () => {
   const { city, id } = useParams();
   const { toast } = useToast();
   
   // Find the post matching the URL parameters
-  const post = posts.find((p) => p.id === id && p.city.toLowerCase().replace(/\s+/g, '-') === city);
+  // The URL city slug is lowercase and hyphenated (e.g., 'new-york')
+  // The JSON city field is also lowercase and hyphenated (e.g., 'new-york')
+  const post = posts.find((p) => p.id === id && p.city === city);
 
   if (!post) {
     return (
@@ -103,9 +105,9 @@ const PostPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="container max-w-4xl mx-auto px-4 py-12">
-        <Link to={`/${post.city.toLowerCase().replace(/\s+/g, '-')}`}>
+        <Link to={`/${post.city}`}>
           <Button variant="ghost" className="mb-8 flex items-center gap-2 hover:bg-transparent p-0">
-            <ArrowLeft className="h-4 w-4" /> Back to {post.city.replace(/-/g, ' ')}
+            <ArrowLeft className="h-4 w-4" /> Back to <span className="capitalize ml-1">{post.city.replace(/-/g, ' ')}</span>
           </Button>
         </Link>
 

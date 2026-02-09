@@ -6,6 +6,7 @@ import postsData from "@/content/posts.json";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import FallbackImage from "@/components/FallbackImage";
+import ShareBar from "@/components/ShareBar";
 
 const PostPage = () => {
   const { citySlug, postSlug } = useParams<{ citySlug: string; postSlug: string }>();
@@ -67,6 +68,7 @@ const PostPage = () => {
             {post.excerpt}
           </p>
           <div className="mt-6 h-px w-16 bg-primary" />
+          <ShareBar title={post.title} className="mt-6" />
         </header>
 
         {/* Content */}
@@ -123,8 +125,13 @@ const PostPage = () => {
           </ReactMarkdown>
         </div>
 
+        {/* Share bar bottom */}
+        <div className="max-w-2xl mt-12">
+          <ShareBar title={post.title} />
+        </div>
+
         {/* Disclosure */}
-        <div className="max-w-2xl mt-16 pt-8 border-t border-border">
+        <div className="max-w-2xl mt-8 pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground font-sans leading-relaxed">
             <strong>Affiliate Disclosure:</strong> Some links in this article are affiliate links. We may earn a small commission if you make a purchase, at no extra cost to you. This helps us keep creating free content.
           </p>

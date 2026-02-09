@@ -9,8 +9,8 @@ import FallbackImage from "@/components/FallbackImage";
 const CityHub = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
   const city = citiesData.find((c) => c.slug === citySlug);
-  const cityPosts = postsData.filter((p) => p.cityId === citySlug);
-  const heroImage = cityPosts[0]?.image || "";
+  const cityPosts = postsData.filter((p) => p.city.toLowerCase().replace(/\s+/g, '-') === citySlug);
+  const heroImage = cityPosts[0]?.heroImage || "";
 
   if (!city) {
     return (

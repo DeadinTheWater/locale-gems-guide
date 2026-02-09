@@ -11,8 +11,8 @@ interface CityCardProps {
 }
 
 const CityCard = ({ slug, name, country, tagline }: CityCardProps) => {
-  const cityPost = postsData.find((p) => p.cityId === slug);
-  const imageSrc = cityPost?.image || getCityImage(slug);
+  const cityPost = postsData.find((p) => p.city.toLowerCase().replace(/\s+/g, '-') === slug);
+  const imageSrc = cityPost?.heroImage || getCityImage(slug);
 
   return (
     <Link

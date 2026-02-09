@@ -74,11 +74,11 @@ const Index = () => {
               <PostCard
                 key={post.id}
                 slug={post.id}
-                citySlug={post.cityId}
+                citySlug={post.city.toLowerCase().replace(/\s+/g, '-')}
                 title={post.title}
                 excerpt={post.excerpt}
                 date={post.date}
-                image={post.image}
+                image={post.heroImage}
               />
             ))}
           </div>

@@ -1,149 +1,144 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Facebook, Link as LinkIcon, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
-import posts from "@/content/posts.json";
+import { ArrowLeft } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import citiesData from "@/content/cities.json";
+import postsData from "@/content/posts.json";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import FallbackImage from "@/components/FallbackImage";
+import ShareBar from "@/components/ShareBar";
 
 const PostPage = () => {
-  const { city, id } = useParams();
-  const { toast } = useToast();
-  
-  // Find the post matching the URL parameters
-  // We use a robust comparison that handles both lowercase slugs and potential spaces/hyphens
-  const post = posts.find((p) => {
-    const postCitySlug = p.city.toLowerCase().replace(/\s+/g, '-');
-    const urlCitySlug = city?.toLowerCase().replace(/\s+/g, '-');
-    return p.id === id && postCitySlug === urlCitySlug;
-  });
+  const { citySlug, postSlug } = useParams<{ citySlug: string; postSlug: string }>();
+  const city = citiesData.find((c) => c.slug === citySlug);
+  const post = postsData.find((p) => p.id === postSlug && p.cityId === citySlug);
 
-  if (!post) {
+  if (!city || !post) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4">
-        <h1 className="text-2xl font-bold mb-4">Post not found</h1>
-        <p className="text-muted-foreground mb-6">We couldn't find the post you're looking for.</p>
-        <Link to="/">
-          <Button variant="outline" className="flex items-center gap-2">
-            <ArrowLeft className="h-4 w-4" /> Back to all cities
-          </Button>
-        </Link>
+      <div className="min-h-screen bg-background">
+        <SiteHeader />
+        <div className="container py-24 text-center">
+          <h1 className="text-3xl font-serif font-semibold text-foreground">Post not found</h1>
+          <Link to="/" className="mt-4 inline-block text-primary font-sans text-sm hover:underline">
+            ← Back to all cities
+          </Link>
+        </div>
+        <SiteFooter />
       </div>
     );
   }
 
-  const shareUrl = window.location.href;
-
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(shareUrl);
-    toast({
-      title: "Link copied!",
-      description: "The link has been copied to your clipboard.",
-    });
-  };
-
-  const shareOnFacebook = () => {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
-  };
-
-  const shareOnWhatsApp = () => {
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + " " + shareUrl)}`, '_blank');
-  };
-
-  const ShareBar = () => (
-    <div className="flex items-center gap-2 my-6 py-4 border-y border-border">
-      <span className="text-sm font-medium text-muted-foreground mr-2">Share:</span>
-      <Button variant="outline" size="sm" onClick={shareOnFacebook} className="flex items-center gap-2">
-        <Facebook className="h-4 w-4 text-[#1877F2]" />
-        <span className="hidden sm:inline">Facebook</span>
-      </Button>
-      <Button variant="outline" size="sm" onClick={shareOnWhatsApp} className="flex items-center gap-2">
-        <MessageCircle className="h-4 w-4 text-[#25D366]" />
-        <span className="hidden sm:inline">WhatsApp</span>
-      </Button>
-      <Button variant="outline" size="sm" onClick={handleCopyLink} className="flex items-center gap-2">
-        <LinkIcon className="h-4 w-4" />
-        <span className="hidden sm:inline">Copy Link</span>
-      </Button>
-    </div>
-  );
-
-  // Helper to split content into sections based on "###" headers
-  const renderContent = () => {
-    if (!post.content) return null;
-    
-    const sections = post.content.split(/### \d+\. /).filter(Boolean);
-    const intro = sections.shift(); // The first part is the intro text
-
-    return (
-      <div className="space-y-12">
-        {/* Intro Text */}
-        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
-          {intro?.split('\n').map((p, i) => p.trim() && <p key={i}>{p}</p>)}
-        </div>
-
-        {/* Sections with Images */}
-        {sections.map((section, index) => {
-          const [title, ...textLines] = section.split('\n');
-          const imageKey = `image${index + 1}` as keyof typeof post;
-          const image = post[imageKey];
-
-          return (
-            <section key={index} className="space-y-6">
-              <h2 className="text-2xl font-bold text-foreground">
-                {index + 1}. {title}
-              </h2>
-              {image && (
-                <div className="aspect-video rounded-xl overflow-hidden shadow-md">
-                  <img src={image as string} alt={title} className="w-full h-full object-cover" />
-                </div>
-              )}
-              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
-                {textLines.map((p, i) => p.trim() && <p key={i}>{p}</p>)}
-              </div>
-            </section>
-          );
-        })}
-      </div>
-    );
-  };
+  // Strip the H1 from content since we render it in the header
+  const contentWithoutH1 = post.content.replace(/^# .+\n\n?/, "");
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container max-w-4xl mx-auto px-4 py-12">
-        <Link to={`/${post.city.toLowerCase().replace(/\s+/g, '-')}`}>
-          <Button variant="ghost" className="mb-8 flex items-center gap-2 hover:bg-transparent p-0">
-            <ArrowLeft className="h-4 w-4" /> Back to <span className="capitalize ml-1">{post.city.replace(/-/g, ' ')}</span>
-          </Button>
+      <SiteHeader />
+
+      <article className="container py-10 md:py-16">
+        {/* Breadcrumb */}
+        <Link
+          to={`/${city.slug}`}
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans mb-8"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to {city.name}
         </Link>
 
-        <article className="animate-fade-in">
-          <header className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              {post.title}
-            </h1>
-            <div className="flex items-center gap-4 text-muted-foreground mb-6">
-              <time>{post.date}</time>
-              <span>•</span>
-              <span className="capitalize">{post.city.replace(/-/g, ' ')}</span>
-            </div>
-            
-            <ShareBar />
-          </header>
-
-          <div className="aspect-video mb-12 rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src={post.heroImage}
+        {/* Hero Image */}
+        {post.image && (
+          <div className="max-w-3xl mb-10">
+            <FallbackImage
+              src={post.image}
               alt={post.title}
-              className="w-full h-full object-cover"
+              className="w-full rounded-lg object-cover max-h-[500px]"
             />
           </div>
+        )}
 
-          {renderContent()}
+        {/* Header */}
+        <header className="max-w-2xl mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-xs text-muted-foreground font-sans">{post.date}</span>
+          </div>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-[1.15] text-balance">
+            {post.title}
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground font-sans leading-relaxed">
+            {post.excerpt}
+          </p>
+          <div className="mt-6 h-px w-16 bg-primary" />
+          <ShareBar title={post.title} className="mt-6" />
+        </header>
 
-          <footer className="mt-16">
-            <ShareBar />
-          </footer>
-        </article>
-      </div>
+        {/* Content */}
+        <div className="max-w-2xl prose-custom">
+          <ReactMarkdown
+            components={{
+              h2: ({ children }) => (
+                <h2 className="mt-10 mb-4 text-2xl font-serif font-semibold text-foreground">
+                  {children}
+                </h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="mt-8 mb-3 text-xl font-serif font-semibold text-foreground">
+                  {children}
+                </h3>
+              ),
+              p: ({ children, node }) => {
+                const hasOnlyImage =
+                  node?.children?.length === 1 && node.children[0].type === "element" && node.children[0].tagName === "img";
+                if (hasOnlyImage) {
+                  return <>{children}</>;
+                }
+                return (
+                  <p className="mb-4 text-foreground/85 font-sans leading-[1.8] text-base md:text-[17px]">
+                    {children}
+                  </p>
+                );
+              },
+              img: ({ src, alt }) => (
+                <figure className="my-6">
+                  <FallbackImage
+                    src={src || ""}
+                    alt={alt || ""}
+                    className="w-full rounded-lg object-cover max-h-[500px]"
+                    loading="lazy"
+                  />
+                </figure>
+              ),
+              a: ({ href, children }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  {children}
+                </a>
+              ),
+              strong: ({ children }) => <strong>{children}</strong>,
+              hr: () => <hr className="my-8 border-border" />,
+            }}
+          >
+            {contentWithoutH1}
+          </ReactMarkdown>
+        </div>
+
+        {/* Share bar bottom */}
+        <div className="max-w-2xl mt-12">
+          <ShareBar title={post.title} />
+        </div>
+
+        {/* Disclosure */}
+        <div className="max-w-2xl mt-8 pt-8 border-t border-border">
+          <p className="text-xs text-muted-foreground font-sans leading-relaxed">
+            <strong>Affiliate Disclosure:</strong> Some links in this article are affiliate links. We may earn a small commission if you make a purchase, at no extra cost to you. This helps us keep creating free content.
+          </p>
+        </div>
+      </article>
+
+      <SiteFooter />
     </div>
   );
 };

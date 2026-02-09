@@ -5,6 +5,7 @@ import citiesData from "@/content/cities.json";
 import postsData from "@/content/posts.json";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import FallbackImage from "@/components/FallbackImage";
 
 const PostPage = () => {
   const { citySlug, postSlug } = useParams<{ citySlug: string; postSlug: string }>();
@@ -46,7 +47,7 @@ const PostPage = () => {
         {/* Hero Image */}
         {post.image && (
           <div className="max-w-3xl mb-10">
-            <img
+            <FallbackImage
               src={post.image}
               alt={post.title}
               className="w-full rounded-lg object-cover max-h-[500px]"
@@ -83,7 +84,6 @@ const PostPage = () => {
                 </h3>
               ),
               p: ({ children, node }) => {
-                // If the paragraph contains only an image, render without wrapping <p>
                 const hasOnlyImage =
                   node?.children?.length === 1 && node.children[0].type === "element" && node.children[0].tagName === "img";
                 if (hasOnlyImage) {
@@ -97,8 +97,8 @@ const PostPage = () => {
               },
               img: ({ src, alt }) => (
                 <figure className="my-6">
-                  <img
-                    src={src}
+                  <FallbackImage
+                    src={src || ""}
                     alt={alt || ""}
                     className="w-full rounded-lg object-cover max-h-[500px]"
                     loading="lazy"

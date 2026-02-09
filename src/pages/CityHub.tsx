@@ -4,6 +4,7 @@ import postsData from "@/content/posts.json";
 import PostCard from "@/components/PostCard";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import FallbackImage from "@/components/FallbackImage";
 
 const CityHub = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -32,7 +33,7 @@ const CityHub = () => {
 
       {/* City Hero */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <img
+        <FallbackImage
           src={heroImage}
           alt={`${city.name}, ${city.country}`}
           className="absolute inset-0 h-full w-full object-cover"

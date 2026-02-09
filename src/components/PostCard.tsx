@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FallbackImage from "@/components/FallbackImage";
 
 interface PostCardProps {
   slug: string;
@@ -16,7 +17,7 @@ const PostCard = ({ slug, citySlug, title, excerpt, date, image }: PostCardProps
       className="group flex gap-5 border-b border-border py-8 first:pt-0 last:border-b-0"
     >
       {image && (
-        <img
+        <FallbackImage
           src={image}
           alt={title}
           className="hidden sm:block w-28 h-28 rounded-lg object-cover flex-shrink-0"

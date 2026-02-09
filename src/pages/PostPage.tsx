@@ -1,13 +1,15 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Facebook, Share2, Link as LinkIcon, MessageCircle } from "lucide-react";
+import { ArrowLeft, Facebook, Link as LinkIcon, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import posts from "@/content/posts.json";
+import posts from "../data/posts.json";
 
 const PostPage = () => {
   const { city, id } = useParams();
   const { toast } = useToast();
-  const post = posts.find((p) => p.id === id);
+  
+  // Find the post matching the URL parameters
+  const post = posts.find((p) => p.id === id && p.city.toLowerCase().replace(/\s+/g, '-') === city);
 
   if (!post) {
     return (
@@ -58,12 +60,52 @@ const PostPage = () => {
     </div>
   );
 
+  // Helper to split content into sections based on "###" headers
+  const renderContent = () => {
+    if (!post.content) return null;
+    
+    const sections = post.content.split(/### \d+\. /).filter(Boolean);
+    const intro = sections.shift(); // The first part is the intro text
+
+    return (
+      <div className="space-y-12">
+        {/* Intro Text */}
+        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
+          {intro?.split('\n').map((p, i) => p.trim() && <p key={i}>{p}</p>)}
+        </div>
+
+        {/* Sections with Images */}
+        {sections.map((section, index) => {
+          const [title, ...textLines] = section.split('\n');
+          const imageKey = `image${index + 1}` as keyof typeof post;
+          const image = post[imageKey];
+
+          return (
+            <section key={index} className="space-y-6">
+              <h2 className="text-2xl font-bold text-foreground">
+                {index + 1}. {title}
+              </h2>
+              {image && (
+                <div className="aspect-video rounded-xl overflow-hidden shadow-md">
+                  <img src={image as string} alt={title} className="w-full h-full object-cover" />
+                </div>
+              )}
+              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
+                {textLines.map((p, i) => p.trim() && <p key={i}>{p}</p>)}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container max-w-4xl mx-auto px-4 py-12">
         <Link to={`/${post.city.toLowerCase().replace(/\s+/g, '-')}`}>
           <Button variant="ghost" className="mb-8 flex items-center gap-2 hover:bg-transparent p-0">
-            <ArrowLeft className="h-4 w-4" /> Back to {post.city}
+            <ArrowLeft className="h-4 w-4" /> Back to {post.city.replace(/-/g, ' ')}
           </Button>
         </Link>
 
@@ -75,10 +117,9 @@ const PostPage = () => {
             <div className="flex items-center gap-4 text-muted-foreground mb-6">
               <time>{post.date}</time>
               <span>•</span>
-              <span>{post.city}</span>
+              <span className="capitalize">{post.city.replace(/-/g, ' ')}</span>
             </div>
             
-            {/* Top Share Bar */}
             <ShareBar />
           </header>
 
@@ -90,30 +131,8 @@ const PostPage = () => {
             />
           </div>
 
-          <div className="prose prose-lg max-w-none prose-headings:font-bold prose-p:text-muted-foreground prose-p:leading-relaxed">
-            {/* Content will be rendered here. 
-                Note: Ensure your content rendering logic (Markdown or JSON mapping) is here.
-            */}
-            <div className="space-y-12">
-              {/* Example of rendering sections with images from JSON */}
-              {[1, 2, 3, 4].map((num) => {
-                const imageKey = `image${num}` as keyof typeof post;
-                const image = post[imageKey];
-                if (!image) return null;
+          {renderContent()}
 
-                return (
-                  <section key={num} className="space-y-6">
-                    <div className="aspect-video rounded-xl overflow-hidden shadow-md">
-                      <img src={image as string} alt={`Section ${num}`} className="w-full h-full object-cover" />
-                    </div>
-                    {/* Add your section text here based on your data structure */}
-                  </section>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Bottom Share Bar */}
           <footer className="mt-16">
             <ShareBar />
           </footer>

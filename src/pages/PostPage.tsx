@@ -2,21 +2,25 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Facebook, Link as LinkIcon, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import posts from "@/content/posts.json";
+import posts from "../data/posts.json";
 
 const PostPage = () => {
   const { city, id } = useParams();
   const { toast } = useToast();
   
   // Find the post matching the URL parameters
-  // The URL city slug is lowercase and hyphenated (e.g., 'new-york')
-  // The JSON city field is also lowercase and hyphenated (e.g., 'new-york')
-  const post = posts.find((p) => p.id === id && p.city === city);
+  // We use a robust comparison that handles both lowercase slugs and potential spaces/hyphens
+  const post = posts.find((p) => {
+    const postCitySlug = p.city.toLowerCase().replace(/\s+/g, '-');
+    const urlCitySlug = city?.toLowerCase().replace(/\s+/g, '-');
+    return p.id === id && postCitySlug === urlCitySlug;
+  });
 
   if (!post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4">
         <h1 className="text-2xl font-bold mb-4">Post not found</h1>
+        <p className="text-muted-foreground mb-6">We couldn't find the post you're looking for.</p>
         <Link to="/">
           <Button variant="outline" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" /> Back to all cities
@@ -105,7 +109,7 @@ const PostPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="container max-w-4xl mx-auto px-4 py-12">
-        <Link to={`/${post.city}`}>
+        <Link to={`/${post.city.toLowerCase().replace(/\s+/g, '-')}`}>
           <Button variant="ghost" className="mb-8 flex items-center gap-2 hover:bg-transparent p-0">
             <ArrowLeft className="h-4 w-4" /> Back to <span className="capitalize ml-1">{post.city.replace(/-/g, ' ')}</span>
           </Button>

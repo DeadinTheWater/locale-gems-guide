@@ -68,6 +68,7 @@ const PostPage = () => {
             {post.excerpt}
           </p>
           <div className="mt-6 h-px w-16 bg-primary" />
+          <ShareBar title={post.title} className="mt-6" />
         </header>
 
         {/* Content */}

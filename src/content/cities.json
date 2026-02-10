@@ -68,5 +68,12 @@
     "country": "Australia",
     "tagline": "Sun, surf, and secret gardens",
     "description": "Beyond the Opera House and Harbour Bridge, Sydney hides secret gardens, secluded beaches, and contemporary art havens waiting to be discovered."
+  },
+  {
+    "slug": "pittsburgh",
+    "name": "Pittsburgh",
+    "country": "United States",
+    "tagline": "Steel, art, and hidden stories",
+    "description": "A city reborn from its industrial past, Pittsburgh surprises with colorful street art, secret art houses, wooden streets, and a treasure trove of relics tucked into its hilltop neighborhoods."
   }
 ]

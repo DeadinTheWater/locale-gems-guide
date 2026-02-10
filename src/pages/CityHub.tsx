@@ -37,6 +37,7 @@ const CityHub = () => {
           src={heroImage}
           alt={`${city.name}, ${city.country}`}
           className="absolute inset-0 h-full w-full object-cover"
+          style={cityPosts[0] && (cityPosts[0] as any).imagePosition ? { objectPosition: (cityPosts[0] as any).imagePosition } : undefined}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent" />
         <div className="container relative flex h-full flex-col justify-end pb-10 md:pb-14">

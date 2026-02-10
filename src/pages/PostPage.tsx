@@ -40,7 +40,7 @@ const PostPage = () => {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <article className="container py-10 md:py-16" id="top" ref={(el) => el?.scrollIntoView()}>
+      <article className="container py-10 md:py-16" id="top">
         {/* Breadcrumb */}
         <Link
           to={`/${city.slug}`}

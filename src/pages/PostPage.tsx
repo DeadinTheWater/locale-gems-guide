@@ -35,7 +35,7 @@ const PostPage = () => {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <article className="container py-10 md:py-16">
+      <article className="container py-10 md:py-16" id="top" ref={(el) => el?.scrollIntoView()}>
         {/* Breadcrumb */}
         <Link
           to={`/${city.slug}`}
@@ -45,9 +45,19 @@ const PostPage = () => {
           Back to {city.name}
         </Link>
 
+        {/* Title & Subtitle above hero */}
+        <header className="max-w-2xl mb-8">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-[1.15] text-balance">
+            {post.title}
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground font-sans leading-relaxed">
+            {post.excerpt}
+          </p>
+        </header>
+
         {/* Hero Image */}
         {post.image && (
-          <div className="max-w-3xl mb-10">
+          <div className="max-w-3xl mb-6">
             <FallbackImage
               src={post.image}
               alt={post.title}
@@ -56,20 +66,14 @@ const PostPage = () => {
           </div>
         )}
 
-        {/* Header */}
-        <header className="max-w-2xl mb-10">
+        {/* Date & Share */}
+        <div className="max-w-2xl mb-10">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs text-muted-foreground font-sans">{post.date}</span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-[1.15] text-balance">
-            {post.title}
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground font-sans leading-relaxed">
-            {post.excerpt}
-          </p>
-          <div className="mt-6 h-px w-16 bg-primary" />
-          <ShareBar title={post.title} className="mt-6" />
-        </header>
+          <div className="h-px w-16 bg-primary mb-6" />
+          <ShareBar title={post.title} />
+        </div>
 
         {/* Content */}
         <div className="max-w-2xl prose-custom">

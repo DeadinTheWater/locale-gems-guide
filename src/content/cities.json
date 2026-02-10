@@ -75,5 +75,12 @@
     "country": "United States",
     "tagline": "Steel, art, and hidden stories",
     "description": "A city reborn from its industrial past, Pittsburgh surprises with colorful street art, secret art houses, wooden streets, and a treasure trove of relics tucked into its hilltop neighborhoods."
+  },
+  {
+    "slug": "mexico-city",
+    "name": "Mexico City",
+    "country": "Mexico",
+    "tagline": "Ancient wonders meet modern magic",
+    "description": "A sprawling, high-altitude metropolis of surrealist art, secret gardens, futuristic libraries, and hidden colonial villages that defy easy definition."
   }
 ]

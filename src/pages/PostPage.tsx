@@ -14,6 +14,10 @@ const PostPage = () => {
   const city = citiesData.find((c) => c.slug === citySlug);
   const post = postsData.find((p) => p.id === postSlug && p.cityId === citySlug);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [citySlug, postSlug]);
+
   if (!city || !post) {
     return (
       <div className="min-h-screen bg-background">

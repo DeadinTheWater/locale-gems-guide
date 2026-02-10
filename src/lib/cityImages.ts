@@ -20,6 +20,7 @@ const cityImages: Record<string, string> = {
   honolulu,
   bangkok,
   london,
+  "mexico-city": mexicoCity,
 };
 
 export function getCityImage(slug: string): string {

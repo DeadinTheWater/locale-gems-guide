@@ -33,8 +33,8 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<About />} />
           <Route path="/disclosure" element={<About />} />
-          <Route path="/:citySlug" element={<CityHub />} />
-          <Route path="/:citySlug/:postSlug" element={<PostPage />} />
+          <Route path="/:citySlug" element={<CityHubKeyed />} />
+          <Route path="/:citySlug/:postSlug" element={<PostPageKeyed />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

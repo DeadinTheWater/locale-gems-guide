@@ -11,6 +11,17 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Wrapper to force remount when city slug changes
+const CityHubKeyed = () => {
+  const { citySlug } = useParams();
+  return <CityHub key={citySlug} />;
+};
+
+const PostPageKeyed = () => {
+  const { citySlug, postSlug } = useParams();
+  return <PostPage key={`${citySlug}-${postSlug}`} />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>

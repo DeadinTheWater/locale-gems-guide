@@ -67,6 +67,7 @@ const PostPage = () => {
               src={post.image}
               alt={post.title}
               className="w-full rounded-lg object-cover max-h-[500px]"
+              style={(post as any).imagePosition ? { objectPosition: (post as any).imagePosition } : undefined}
             />
           </div>
         )}

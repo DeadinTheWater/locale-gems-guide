@@ -8,6 +8,7 @@ import CityHub from "./pages/CityHub";
 import PostPage from "./pages/PostPage";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 

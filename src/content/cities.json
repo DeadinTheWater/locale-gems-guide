@@ -61,5 +61,12 @@
     "country": "United Kingdom",
     "tagline": "Where history meets modern culture",
     "description": "Explore centuries of history alongside cutting-edge galleries, secret gardens, and the best afternoon tea you'll ever have."
+  },
+  {
+    "slug": "sydney",
+    "name": "Sydney",
+    "country": "Australia",
+    "tagline": "Sun, surf, and secret gardens",
+    "description": "Beyond the Opera House and Harbour Bridge, Sydney hides secret gardens, secluded beaches, and contemporary art havens waiting to be discovered."
   }
 ]

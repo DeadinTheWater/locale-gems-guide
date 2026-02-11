@@ -96,5 +96,12 @@
     "country": "United States",
     "tagline": "Jazz, mystery, and hidden magic",
     "description": "Beyond Bourbon Street, the Big Easy reveals a soulful, eccentric character through pharmacy museums, singing trees, powerful street art, and secret neighborhoods across the river."
+  },
+  {
+    "slug": "san-antonio",
+    "name": "San Antonio",
+    "country": "United States",
+    "tagline": "History, art, and hidden gardens",
+    "description": "Beyond the Alamo, San Antonio reveals a diverse, artistic, and tranquil character through sunken gardens, immersive art, historic districts, and centuries-old missions."
   }
 ]

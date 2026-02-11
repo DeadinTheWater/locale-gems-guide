@@ -10,6 +10,7 @@ import bangkok from "@/assets/cities/bangkok.jpg";
 import london from "@/assets/cities/london.jpg";
 import mexicoCity from "@/assets/cities/mexico-city.jpg";
 import seattle from "@/assets/cities/seattle.jpg";
+import newOrleans from "@/assets/cities/new-orleans.jpg";
 
 const cityImages: Record<string, string> = {
   "new-york": newYork,

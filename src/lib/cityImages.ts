@@ -24,6 +24,7 @@ const cityImages: Record<string, string> = {
   london,
   "mexico-city": mexicoCity,
   seattle,
+  "new-orleans": newOrleans,
 };
 
 export function getCityImage(slug: string): string {

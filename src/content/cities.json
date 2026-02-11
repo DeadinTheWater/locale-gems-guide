@@ -103,5 +103,12 @@
     "country": "United States",
     "tagline": "History, art, and hidden gardens",
     "description": "Beyond the Alamo, San Antonio reveals a diverse, artistic, and tranquil character through sunken gardens, immersive art, historic districts, and centuries-old missions."
+  },
+  {
+    "slug": "el-paso",
+    "name": "El Paso",
+    "country": "United States",
+    "tagline": "Where the desert meets the border",
+    "description": "Ancient pictographs, Himalayan temples, sugar-coated houses, and centuries-old missions reveal El Paso's layered, artistic, and deeply historic character."
   }
 ]

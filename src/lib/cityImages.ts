@@ -9,6 +9,7 @@ import honolulu from "@/assets/cities/honolulu.jpg";
 import bangkok from "@/assets/cities/bangkok.jpg";
 import london from "@/assets/cities/london.jpg";
 import mexicoCity from "@/assets/cities/mexico-city.jpg";
+import seattle from "@/assets/cities/seattle.jpg";
 
 const cityImages: Record<string, string> = {
   "new-york": newYork,
@@ -21,6 +22,7 @@ const cityImages: Record<string, string> = {
   bangkok,
   london,
   "mexico-city": mexicoCity,
+  seattle,
 };
 
 export function getCityImage(slug: string): string {

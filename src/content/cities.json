@@ -82,5 +82,12 @@
     "country": "Mexico",
     "tagline": "Ancient wonders meet modern magic",
     "description": "A sprawling, high-altitude metropolis of surrealist art, secret gardens, futuristic libraries, and hidden colonial villages that defy easy definition."
+  },
+  {
+    "slug": "seattle",
+    "name": "Seattle",
+    "country": "United States",
+    "tagline": "The Emerald City's secret soul",
+    "description": "Beyond the Space Needle and Pike Place, Seattle hides century-old curiosity shops, giant trolls under bridges, surreal architecture, and tranquil Japanese gardens."
   }
 ]

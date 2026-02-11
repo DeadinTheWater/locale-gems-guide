@@ -89,5 +89,12 @@
     "country": "United States",
     "tagline": "The Emerald City's secret soul",
     "description": "Beyond the Space Needle and Pike Place, Seattle hides century-old curiosity shops, giant trolls under bridges, surreal architecture, and tranquil Japanese gardens."
+  },
+  {
+    "slug": "new-orleans",
+    "name": "New Orleans",
+    "country": "United States",
+    "tagline": "Jazz, mystery, and hidden magic",
+    "description": "Beyond Bourbon Street, the Big Easy reveals a soulful, eccentric character through pharmacy museums, singing trees, powerful street art, and secret neighborhoods across the river."
   }
 ]

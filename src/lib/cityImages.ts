@@ -28,6 +28,7 @@ const cityImages: Record<string, string> = {
   seattle,
   "new-orleans": newOrleans,
   "san-antonio": sanAntonio,
+  "el-paso": elPaso,
 };
 
 export function getCityImage(slug: string): string {

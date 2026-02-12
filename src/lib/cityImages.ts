@@ -16,6 +16,7 @@ import elPaso from "@/assets/cities/el-paso.jpg";
 import kyoto from "@/assets/cities/kyoto.jpg";
 import taipei from "@/assets/cities/taipei.jpg";
 import kobe from "@/assets/cities/kobe.jpg";
+import osaka from "@/assets/cities/osaka.jpg";
 
 const cityImages: Record<string, string> = {
   "new-york": newYork,
@@ -35,6 +36,7 @@ const cityImages: Record<string, string> = {
   kyoto,
   taipei,
   kobe,
+  osaka,
 };
 
 export function getCityImage(slug: string): string {

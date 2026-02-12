@@ -110,5 +110,12 @@
     "country": "United States",
     "tagline": "Where the desert meets the border",
     "description": "Ancient pictographs, Himalayan temples, sugar-coated houses, and centuries-old missions reveal El Paso's layered, artistic, and deeply historic character."
+  },
+  {
+    "slug": "kyoto",
+    "name": "Kyoto",
+    "country": "Japan",
+    "tagline": "The ancient capital's secret soul",
+    "description": "Beyond the Golden Pavilion and bamboo groves, Kyoto hides playful stone statues, luminous moss gardens, serene sand mounds, and blue-lit imperial temples."
   }
 ]

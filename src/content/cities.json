@@ -117,5 +117,12 @@
     "country": "Japan",
     "tagline": "The ancient capital's secret soul",
     "description": "Beyond the Golden Pavilion and bamboo groves, Kyoto hides playful stone statues, luminous moss gardens, serene sand mounds, and blue-lit imperial temples."
+  },
+  {
+    "slug": "taipei",
+    "name": "Taipei",
+    "country": "Taiwan",
+    "tagline": "Beyond the 101, Taiwan's secret soul",
+    "description": "Past the skyscrapers and neon, Taipei hides artist villages on hillsides, the last letterpress foundry in Taiwan, an eco-library in the trees, and charmingly crooked mailboxes."
   }
 ]

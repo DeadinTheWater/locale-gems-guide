@@ -131,5 +131,12 @@
     "country": "Japan",
     "tagline": "Beyond the beef, a port city's secret soul",
     "description": "Past the famous beef and harbor views, Kobe hides European mansions on mountain slopes, ancient forest shrines, herb-scented waterfalls, and Japan's most dazzling night view."
+  },
+  {
+    "slug": "osaka",
+    "name": "Osaka",
+    "country": "Japan",
+    "tagline": "Beyond the neon, the nation's kitchen's secret soul",
+    "description": "Past the neon-drenched Dotonbori and towering castle, Osaka hides moss-covered shrines, highways through skyscrapers, Taisho-era dining halls, and 10-yen vending machine gambles."
   }
 ]

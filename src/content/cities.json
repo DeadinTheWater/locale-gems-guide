@@ -124,5 +124,12 @@
     "country": "Taiwan",
     "tagline": "Beyond the 101, Taiwan's secret soul",
     "description": "Past the skyscrapers and neon, Taipei hides artist villages on hillsides, the last letterpress foundry in Taiwan, an eco-library in the trees, and charmingly crooked mailboxes."
+  },
+  {
+    "slug": "kobe",
+    "name": "Kobe",
+    "country": "Japan",
+    "tagline": "Beyond the beef, a port city's secret soul",
+    "description": "Past the famous beef and harbor views, Kobe hides European mansions on mountain slopes, ancient forest shrines, herb-scented waterfalls, and Japan's most dazzling night view."
   }
 ]

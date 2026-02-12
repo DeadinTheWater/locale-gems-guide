@@ -28,7 +28,7 @@ const SiteHeader = () => {
             {citiesOpen && (
               <>
                 <div className="fixed inset-0" onClick={() => setCitiesOpen(false)} />
-                <div className="absolute right-0 top-full mt-2 w-48 rounded-sm border border-border bg-popover p-2 shadow-lg z-50">
+                <div className="absolute right-0 top-full mt-2 w-48 max-h-80 overflow-y-auto rounded-sm border border-border bg-popover p-2 shadow-lg z-50">
                   {citiesData.map((city) => (
                     <Link
                       key={city.slug}

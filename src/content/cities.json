@@ -138,5 +138,12 @@
     "country": "Japan",
     "tagline": "Beyond the neon, the nation's kitchen's secret soul",
     "description": "Past the neon-drenched Dotonbori and towering castle, Osaka hides moss-covered shrines, highways through skyscrapers, Taisho-era dining halls, and 10-yen vending machine gambles."
+  },
+  {
+    "slug": "san-diego",
+    "name": "San Diego",
+    "country": "United States",
+    "tagline": "Beyond the beaches, America's finest hidden gems",
+    "description": "Past the sun-kissed shores and Balboa Park, San Diego hides Japanese friendship bells, secret slot canyons, coastal meanders, and whimsical topiary gardens."
   }
 ]

@@ -145,5 +145,12 @@
     "country": "United States",
     "tagline": "Beyond the beaches, America's finest hidden gems",
     "description": "Past the sun-kissed shores and Balboa Park, San Diego hides Japanese friendship bells, secret slot canyons, coastal meanders, and whimsical topiary gardens."
+  },
+  {
+    "slug": "virginia-beach",
+    "name": "Virginia Beach",
+    "country": "United States",
+    "tagline": "Beyond the boardwalk, coastal secrets await",
+    "description": "Past the bustling boardwalk and King Neptune, Virginia Beach hides serene nature preserves, vibrant art districts, secluded shorelines, and spectacular bayside sunsets."
   }
 ]

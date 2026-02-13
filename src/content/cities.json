@@ -152,5 +152,12 @@
     "country": "United States",
     "tagline": "Beyond the boardwalk, coastal secrets await",
     "description": "Past the bustling boardwalk and King Neptune, Virginia Beach hides serene nature preserves, vibrant art districts, secluded shorelines, and spectacular bayside sunsets."
+  },
+  {
+    "slug": "toronto",
+    "name": "Toronto",
+    "country": "Canada",
+    "tagline": "Beyond the CN Tower, a mosaic of hidden wonders",
+    "description": "Past the iconic skyline and bustling downtown, Toronto reveals cultural enclaves, serene nature escapes, vibrant street art, and reimagined industrial spaces that define its diverse spirit."
   }
 ]

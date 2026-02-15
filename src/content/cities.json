@@ -159,5 +159,12 @@
     "country": "Canada",
     "tagline": "Beyond the CN Tower, a mosaic of hidden wonders",
     "description": "Past the iconic skyline and bustling downtown, Toronto reveals cultural enclaves, serene nature escapes, vibrant street art, and reimagined industrial spaces that define its diverse spirit."
+  },
+  {
+    "slug": "ho-chi-minh-city",
+    "name": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "tagline": "Beyond the bustle, Saigon's hidden soul",
+    "description": "Past the motorbike-filled streets and bustling markets, Ho Chi Minh City hides vertical cafe villages, secret wartime cellars, cinematic Chinatown alleys, and museums of ancient healing."
   }
 ]

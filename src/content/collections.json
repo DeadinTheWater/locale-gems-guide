@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "culinary-journeys",
+    "name": "Culinary Journeys",
+    "description": "From hidden street food stalls to centuries-old tea houses — taste the world's best-kept secrets.",
+    "image": "/images/posts/osaka/hozenji-yokocho.jpeg",
+    "cities": ["osaka", "bangkok", "mexico-city", "new-orleans", "new-york"]
+  },
+  {
+    "slug": "urban-adventures",
+    "name": "Urban Adventures",
+    "description": "Vertical cafe villages, underground tunnels, and rooftop escapes in the world's most exciting cities.",
+    "image": "/images/posts/ho-chi-minh-city/cafe-apartment.jpeg",
+    "cities": ["ho-chi-minh-city", "new-york", "london", "los-angeles", "san-francisco"]
+  },
+  {
+    "slug": "historical-hidden-gems",
+    "name": "Historical Hidden Gems",
+    "description": "Secret wartime cellars, ancient missions, and forgotten ruins that rewrite the stories you thought you knew.",
+    "image": "/images/posts/london/st-dunstan-in-the-east.jpg",
+    "cities": ["london", "kyoto", "el-paso", "san-antonio", "ho-chi-minh-city"]
+  },
+  {
+    "slug": "coastal-escapes",
+    "name": "Coastal Escapes",
+    "description": "Secluded beaches, hidden coves, and serene waterfront gardens where the ocean meets adventure.",
+    "image": "/images/posts/honolulu/ho-omaluhia-botanical-garden.jpg",
+    "cities": ["honolulu", "san-diego", "virginia-beach", "sydney", "los-angeles"]
+  }
+]

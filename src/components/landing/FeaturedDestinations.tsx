@@ -41,7 +41,7 @@ const FeaturedDestinations = () => {
         >
           <Link
             to={`/${featured[0].slug}`}
-            className="group relative block aspect-[16/10] lg:aspect-auto lg:h-full overflow-hidden rounded-lg"
+            className="group relative block aspect-[4/5] md:aspect-[16/10] lg:aspect-auto lg:h-full overflow-hidden rounded-lg"
           >
             <FallbackImage
               src={featured[0].image}

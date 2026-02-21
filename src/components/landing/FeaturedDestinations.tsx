@@ -84,6 +84,7 @@ const FeaturedDestinations = () => {
                 src={city.image}
                 alt={`${city.name}, ${city.country}`}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style={city.slug === "kyoto" ? { objectPosition: "center 20%" } : undefined}
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />

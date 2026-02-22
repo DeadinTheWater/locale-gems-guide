@@ -45,6 +45,8 @@ const PostPage = () => {
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>{post.title} — InterestingHere</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <meta name="description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />

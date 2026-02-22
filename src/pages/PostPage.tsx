@@ -37,8 +37,25 @@ const PostPage = () => {
   // Strip the H1 from content since we render it in the header
   const contentWithoutH1 = post.content.replace(/^# .+\n\n?/, "");
 
+  const siteUrl = "https://interestinghere.com";
+  const postUrl = `${siteUrl}/${citySlug}/${post.id}`;
+  const postImage = `${siteUrl}${post.image}`;
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{post.title} — InterestingHere</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={postImage} />
+        <meta property="og:url" content={postUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={postImage} />
+      </Helmet>
       <SiteHeader />
 
       <article className="container py-10 md:py-16" id="top">

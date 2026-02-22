@@ -26,22 +26,24 @@ const PostPageKeyed = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/privacy" element={<About />} />
-          <Route path="/disclosure" element={<About />} />
-          <Route path="/:citySlug" element={<CityHubKeyed />} />
-          <Route path="/:citySlug/:postSlug" element={<PostPageKeyed />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <HelmetProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<About />} />
+            <Route path="/disclosure" element={<About />} />
+            <Route path="/:citySlug" element={<CityHubKeyed />} />
+            <Route path="/:citySlug/:postSlug" element={<PostPageKeyed />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 

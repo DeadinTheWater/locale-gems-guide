@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import CityHub from "./pages/CityHub";
 import PostPage from "./pages/PostPage";
@@ -25,22 +26,24 @@ const PostPageKeyed = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/privacy" element={<About />} />
-          <Route path="/disclosure" element={<About />} />
-          <Route path="/:citySlug" element={<CityHubKeyed />} />
-          <Route path="/:citySlug/:postSlug" element={<PostPageKeyed />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <HelmetProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<About />} />
+            <Route path="/disclosure" element={<About />} />
+            <Route path="/:citySlug" element={<CityHubKeyed />} />
+            <Route path="/:citySlug/:postSlug" element={<PostPageKeyed />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 

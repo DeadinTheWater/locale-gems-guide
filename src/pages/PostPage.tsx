@@ -47,11 +47,13 @@ const PostPage = () => {
         <title>{post.title} — InterestingHere</title>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href={postUrl} />
         <meta name="description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={postImage} />
+        <meta property="og:image:secure_url" content={postImage} />
         <meta property="og:url" content={postUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />

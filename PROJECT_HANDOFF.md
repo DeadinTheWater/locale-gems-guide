@@ -103,7 +103,47 @@ Amazon Associates) and those within Travelpayouts with instant approval.
 • Content-Driven Approval: Leverage unique interview content to gain approval from
 more selective programs. Highlight exclusive access to local experts in applications.
 • Disclosure: Maintain prominent affiliate disclosure on all relevant pages.
-9. Growth Prioritization: "Hub and Spoke" Model
+9. Open Graph / Social Sharing SOP
+
+The site is deployed as a static SPA on GitHub Pages, which means social media
+crawlers cannot execute JavaScript. To solve this, a **post-build script**
+(`scripts/generate-og-pages.mjs`) generates static HTML files with hardcoded
+OG meta tags for every post and city route.
+
+### How it works
+1. After `vite build`, the script runs automatically (configured in `package.json`'s `build` command).
+2. It reads `src/content/posts.json` and `src/content/cities.json`.
+3. For each post, it creates `dist/{citySlug}/{postId}/index.html` with:
+   - Full `og:title`, `og:description`, `og:image`, `og:url` meta tags
+   - Twitter Card meta tags (`summary_large_image`)
+   - Canonical URL
+   - All CSS/JS assets from the Vite build (so the SPA still boots for real visitors)
+4. For each city, it creates `dist/{citySlug}/index.html` with similar OG tags.
+
+### Adding a new post — no extra steps needed
+- Add the post entry to `src/content/posts.json` with `image` pointing to the hero image path (e.g., `/images/posts/city/hero.jpg`).
+- Place the hero image in `public/images/posts/{city}/`.
+- The next `npm run build` (or GitHub Actions deploy) automatically generates the OG page.
+
+### Key constraints (DO NOT change without testing)
+- The script extracts `<link>` tags (stylesheets + modulepreloads) and `<script type="module">` tags from the built `index.html`. **Both are required** — missing scripts = blank page, missing links = broken styles.
+- The `SITE` constant is hardcoded to `https://interestinghere.com`. Update it if the domain changes.
+- Hero images referenced in `og:image` must be absolute URLs (the script prepends `SITE`).
+
+### Testing social previews
+- Push to GitHub → wait for deploy.
+- Test URL in [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/).
+- Test URL in [Twitter Card Validator](https://cards-dev.twitter.com/validator).
+- If previews are stale, use "Scrape Again" / "Fetch new information" in the debugger tools.
+
+### Common pitfalls (lessons learned)
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| Blank page on post URLs | Script didn't include `<script type="module">` tags | Ensure `scriptRegex` captures module scripts |
+| Broken formatting/styles | Script didn't capture all `<link>` tags (self-closing vs standard) | Use permissive regex: `/<link[^>]*\/?>/g` |
+| OG image not showing | Image path is relative, not absolute | Script prepends `SITE` constant to `post.image` |
+
+10. Growth Prioritization: "Hub and Spoke" Model
 • Phase 1 (70% Effort): InterestingHere.com (The Hub): Focus all technical and content
 generation efforts on building interestinghere.com as the primary authority site. This
 includes the landing page restructure and all new interview-based articles.

@@ -27,13 +27,16 @@ const indexHtml = readFileSync(join(DIST, "index.html"), "utf-8");
 const bodyMatch = indexHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/);
 const bodyContent = bodyMatch ? bodyMatch[1] : '<div id="root"></div>';
 
-// Extract asset links (CSS, preloads) from the built index.html <head>
+// Extract asset links (CSS, preloads) AND script tags from the built index.html <head>
 const headAssets = [];
-const linkRegex = /<link[^>]+>/g;
+const tagRegex = /<(link|script)[^>]*(?:\/>|>[^<]*<\/script>)/g;
 let m;
-while ((m = linkRegex.exec(indexHtml)) !== null) {
-  // Keep stylesheet and modulepreload links
-  if (m[0].includes("stylesheet") || m[0].includes("modulepreload")) {
+while ((m = tagRegex.exec(indexHtml)) !== null) {
+  if (
+    m[0].includes("stylesheet") ||
+    m[0].includes("modulepreload") ||
+    m[0].includes('type="module"')
+  ) {
     headAssets.push(m[0]);
   }
 }

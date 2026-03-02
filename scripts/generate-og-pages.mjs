@@ -29,14 +29,16 @@ const bodyContent = bodyMatch ? bodyMatch[1] : '<div id="root"></div>';
 
 // Extract asset links (CSS, preloads) AND script tags from the built index.html <head>
 const headAssets = [];
-const tagRegex = /<(link|script)[^>]*(?:\/>|>[^<]*<\/script>)/g;
+const linkRegex = /<link[^>]*\/?>/g;
+const scriptRegex = /<script[^>]*>[^<]*<\/script>/g;
 let m;
-while ((m = tagRegex.exec(indexHtml)) !== null) {
-  if (
-    m[0].includes("stylesheet") ||
-    m[0].includes("modulepreload") ||
-    m[0].includes('type="module"')
-  ) {
+while ((m = linkRegex.exec(indexHtml)) !== null) {
+  if (m[0].includes("stylesheet") || m[0].includes("modulepreload")) {
+    headAssets.push(m[0]);
+  }
+}
+while ((m = scriptRegex.exec(indexHtml)) !== null) {
+  if (m[0].includes('type="module"')) {
     headAssets.push(m[0]);
   }
 }

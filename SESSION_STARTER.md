@@ -33,8 +33,12 @@
 
 The site is a static SPA on GitHub Pages. Social media crawlers **cannot execute JavaScript**, so a **post-build script** generates static HTML files with hardcoded OG meta tags.
 
+### Build pipeline (in order)
+1. `vite build` — produces `dist/`
+2. `scripts/validate-og-images.mjs` — checks every post hero image in `dist/` is ≥1200×630px; undersized images are auto-resized via `sharp` (dist only, not source). Missing images fail the build.
+3. `scripts/generate-og-pages.mjs` — generates static HTML with OG tags, reading actual image dimensions from disk via `sharp` (no hardcoded sizes).
+
 ### Script: `scripts/generate-og-pages.mjs`
-- Runs automatically after `vite build` (configured in `package.json` build command)
 - Reads `posts.json` and `cities.json`
 - For each post: creates `dist/{citySlug}/{postId}/index.html`
 - For each city: creates `dist/{citySlug}/index.html`

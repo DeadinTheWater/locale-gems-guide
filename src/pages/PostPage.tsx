@@ -161,13 +161,27 @@ const PostPage = () => {
             {contentWithoutH1}
           </ReactMarkdown>
 
-          {/* Monetization / Affiliate CTAs */}
+          {/* Monetization / Affiliate Links */}
           {(post as any).monetization && (post as any).monetization.length > 0 && (
-            <div className="mt-10">
+            <section className="mt-10" aria-label="Recommended travel offers">
+              <h3 className="mb-5 text-xl font-serif font-semibold text-foreground">Our Recommendations</h3>
               {(post as any).monetization.map((offer: { label: string; description: string; url: string }, idx: number) => (
-                <AffiliateCTA key={idx} label={offer.label} description={offer.description} url={offer.url} />
+                <div key={idx} className="mb-6">
+                  <p className="mb-1 text-sm font-medium uppercase tracking-[0.1em] text-primary font-sans">RECOMMENDED</p>
+                  <a
+                    href={offer.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline font-serif text-lg font-semibold"
+                  >
+                    {offer.label}
+                  </a>
+                  <p className="mt-1 text-foreground/85 font-sans leading-[1.8] text-base md:text-[17px] italic">
+                    {offer.description}
+                  </p>
+                </div>
               ))}
-            </div>
+            </section>
           )}
         </div>
 

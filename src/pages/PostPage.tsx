@@ -9,7 +9,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import FallbackImage from "@/components/FallbackImage";
 import ShareBar from "@/components/ShareBar";
-import AffiliateCTA from "@/components/AffiliateCTA";
+
 
 const PostPage = () => {
   const { citySlug, postSlug } = useParams<{ citySlug: string; postSlug: string }>();

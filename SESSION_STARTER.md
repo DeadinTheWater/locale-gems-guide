@@ -67,6 +67,8 @@ Hardcoded to `https://interestinghere.com`. All `og:image` URLs are absolute (sc
 | Broken styles/formatting | Script didn't capture all `<link>` tags | Use permissive regex: `/<link[^>]*\/?>/g` |
 | OG image not showing | Image path is relative | Script must prepend `SITE` constant |
 | Stale social previews | Crawler cache | Use Facebook Sharing Debugger "Scrape Again" |
+| OG image too small / no preview | Hero image under 1200×630px | `validate-og-images.mjs` auto-resizes; replace source with larger image |
+| Declared vs actual size mismatch | Hardcoded dimensions | `generate-og-pages.mjs` now reads actual dimensions via `sharp` |
 
 ## Landing Page Sections
 1. **HeroSection** — dynamic background, H1, search-style CTA

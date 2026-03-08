@@ -142,6 +142,8 @@ OG meta tags for every post and city route.
 | Blank page on post URLs | Script didn't include `<script type="module">` tags | Ensure `scriptRegex` captures module scripts |
 | Broken formatting/styles | Script didn't capture all `<link>` tags (self-closing vs standard) | Use permissive regex: `/<link[^>]*\/?>/g` |
 | OG image not showing | Image path is relative, not absolute | Script prepends `SITE` constant to `post.image` |
+| OG image too small / no preview | Hero image under 1200×630px | `validate-og-images.mjs` auto-resizes in dist; replace source image with a larger version |
+| Declared vs actual size mismatch | Hardcoded dimensions don't match real image | `generate-og-pages.mjs` reads actual dimensions via `sharp` |
 
 10. Growth Prioritization: "Hub and Spoke" Model
 • Phase 1 (70% Effort): InterestingHere.com (The Hub): Focus all technical and content

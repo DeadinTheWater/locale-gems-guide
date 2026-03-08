@@ -37,7 +37,11 @@ const PostPage = () => {
   // Strip the H1 from content since we render it in the header
   const contentWithoutH1 = post.content.replace(/^# .+\n\n?/, "");
 
-  const siteUrl = "https://interestinghere.com";
+  const siteUrl = (
+    (typeof window !== "undefined" && window.location.origin) ||
+    import.meta.env.VITE_SITE_URL ||
+    "https://locale-gems-guide.lovable.app"
+  ).replace(/\/+$/, "");
   const postUrl = `${siteUrl}/${citySlug}/${post.id}`;
   const postImage = `${siteUrl}${post.image}`;
 

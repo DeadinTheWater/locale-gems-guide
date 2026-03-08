@@ -11,6 +11,7 @@
 import { readFileSync, mkdirSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import sharp from "sharp";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -44,11 +45,23 @@ while ((m = scriptRegex.exec(indexHtml)) !== null) {
   }
 }
 
-function buildPage(post, citySlug) {
+async function buildPage(post, citySlug) {
   const postUrl = `${SITE}/${citySlug}/${post.id}`;
   const imageUrl = `${SITE}${post.image}`;
   const title = post.title;
   const description = post.excerpt;
+
+  // Read actual image dimensions from the validated dist copy
+  let imgWidth = 1200;
+  let imgHeight = 630;
+  try {
+    const distImagePath = join(DIST, post.image);
+    const metadata = await sharp(distImagePath).metadata();
+    imgWidth = metadata.width;
+    imgHeight = metadata.height;
+  } catch (e) {
+    console.warn(`⚠️  Could not read dimensions for ${post.image}, using defaults`);
+  }
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -65,8 +78,8 @@ function buildPage(post, citySlug) {
   <meta property="og:url" content="${postUrl}" />
   <meta property="og:image" content="${imageUrl}" />
   <meta property="og:image:secure_url" content="${imageUrl}" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content="${imgWidth}" />
+  <meta property="og:image:height" content="${imgHeight}" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="InterestingHere" />
 
@@ -103,7 +116,7 @@ for (const post of posts) {
   const citySlug = post.cityId;
   const dir = join(DIST, citySlug, post.id);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, "index.html"), buildPage(post, citySlug));
+  writeFileSync(join(dir, "index.html"), await buildPage(post, citySlug));
   count++;
 }
 

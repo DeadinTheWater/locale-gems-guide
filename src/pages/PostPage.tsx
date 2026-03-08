@@ -160,6 +160,15 @@ const PostPage = () => {
           >
             {contentWithoutH1}
           </ReactMarkdown>
+
+          {/* Monetization / Affiliate CTAs */}
+          {(post as any).monetization && (post as any).monetization.length > 0 && (
+            <div className="mt-10">
+              {(post as any).monetization.map((offer: { label: string; description: string; url: string }, idx: number) => (
+                <AffiliateCTA key={idx} label={offer.label} description={offer.description} url={offer.url} />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Share bar bottom */}

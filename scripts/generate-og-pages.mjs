@@ -15,7 +15,8 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DIST = join(ROOT, "dist");
-const SITE = "https://interestinghere.com";
+const DEFAULT_SITE = "https://locale-gems-guide.lovable.app";
+const SITE = (process.env.SITE_URL || process.env.VITE_SITE_URL || DEFAULT_SITE).replace(/\/+$/, "");
 
 const posts = JSON.parse(readFileSync(join(ROOT, "src/content/posts.json"), "utf-8"));
 const cities = JSON.parse(readFileSync(join(ROOT, "src/content/cities.json"), "utf-8"));

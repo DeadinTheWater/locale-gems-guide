@@ -116,7 +116,7 @@ for (const post of posts) {
   const citySlug = post.cityId;
   const dir = join(DIST, citySlug, post.id);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, "index.html"), buildPage(post, citySlug));
+  writeFileSync(join(dir, "index.html"), await buildPage(post, citySlug));
   count++;
 }
 

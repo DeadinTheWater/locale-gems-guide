@@ -111,8 +111,8 @@ crawlers cannot execute JavaScript. To solve this, a **post-build script**
 OG meta tags for every post and city route.
 
 ### How it works
-1. After `vite build`, the script runs automatically (configured in `package.json`'s `build` command).
-2. It reads `src/content/posts.json` and `src/content/cities.json`.
+1. After `vite build`, the **image validation script** (`scripts/validate-og-images.mjs`) runs first. It checks every post's hero image in `dist/` against the 1200×630px minimum. Undersized images are automatically cover-cropped and resized to 1200×630 in the `dist/` copy (source files are not modified). Missing images fail the build.
+2. Then the **OG page generation script** (`scripts/generate-og-pages.mjs`) runs. It reads `src/content/posts.json` and `src/content/cities.json`.
 3. For each post, it creates `dist/{citySlug}/{postId}/index.html` with:
    - Full `og:title`, `og:description`, `og:image`, `og:url` meta tags
    - Twitter Card meta tags (`summary_large_image`)
